@@ -89,6 +89,11 @@ public class CustomerService {
         return customerRepository.findByActive();
     }
     
+    @Transactional
+    public Customer getOne(String id) {
+        return customerRepository.getOne(id);
+    }
+    
     public void validate(Customer customer) throws ErrorService {
         if (customer.getName().trim().isEmpty()) {
             throw new ErrorService("El nombre no puede estar vacío.");
